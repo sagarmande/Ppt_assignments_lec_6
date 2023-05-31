@@ -1,0 +1,16 @@
+def minProductSum(nums1, nums2):
+    nums1.sort()  # Sort nums1 in ascending order
+    nums2.sort()  # Sort nums2 in ascending order
+
+    minProductSum = 0
+    n = len(nums1)
+
+    for i in range(n):
+        minProductSum += nums1[i] * nums2[n - i - 1]
+
+    return minProductSum
+
+
+nums1 = [5, 3, 4, 2]
+nums2 = [4, 2, 2, 5]
+print(minProductSum(nums1, nums2))  # Output: 40
