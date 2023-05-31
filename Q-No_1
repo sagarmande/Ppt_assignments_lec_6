@@ -1,0 +1,20 @@
+def findPermutation(s):
+    perm = []
+    n = len(s)
+    start, end = 0, n
+
+    for c in s:
+        if c == 'I':
+            perm.append(start)
+            start += 1
+        elif c == 'D':
+            perm.append(end)
+            end -= 1
+
+    perm.append(start)  # or perm.append(end) since start == end
+
+    return perm
+
+
+s = "IDID"
+print(findPermutation(s))
