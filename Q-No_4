@@ -1,0 +1,22 @@
+def findMaxLength(nums):
+    maxLen = 0
+    sum = 0
+    sumDict = {0: -1}  # Initialize with an entry for the sum 0 at index -1
+
+    for i in range(len(nums)):
+        if nums[i] == 0:
+            sum -= 1
+        else:
+            sum += 1
+
+        if sum in sumDict:
+            maxLen = max(maxLen, i - sumDict[sum])
+        else:
+            sumDict[sum] = i
+
+    return maxLen
+
+
+nums = [0, 1]
+result = findMaxLength(nums)
+print(result)
